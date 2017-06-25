@@ -4,7 +4,7 @@ import (
   "log"
   "os"
 
-  pb "github.com/integralist/test-grpc-custom/pb"
+  pb "event/event"
   "golang.org/x/net/context"
   "google.golang.org/grpc"
 )

@@ -4,7 +4,7 @@ import (
   "log"
   "net"
 
-  pb "event/event.proto"
+  pb "event/event"
   "golang.org/x/net/context"
   "google.golang.org/grpc"
 )
