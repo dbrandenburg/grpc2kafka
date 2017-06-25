@@ -4,9 +4,9 @@ import (
   "log"
   "net"
 
-  pb "event/event"
   "golang.org/x/net/context"
   "google.golang.org/grpc"
+  pb "github.com/dbrandenburg/grpc2kafka/event"
 )
 
 const (
@@ -15,8 +15,13 @@ const (
 
 type server struct{}
 
-func (s *server) Process(ctx context.Context, in *pb.Event) (*pb.Delivery, error) {
-  return &pb.Event{Message: "Hello "}, nil
+func (s *server) SendEvent(ctx context.Context, in *pb.Event) (*pb.Delivery, error) {
+  return &pb.Delivery{Status: "Hello " + in.Name}, nil
+}
+
+func (s *server) GetEvents(loc *pb.Location, stream pb.EventProtos_GetEventsServer) error {
+  //return &pb.Event{Latitude: 1, Longitude: 2}, nil
+  return nil
 }
 
 func main() {
