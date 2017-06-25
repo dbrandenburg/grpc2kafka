@@ -1,0 +1,26 @@
+syntax = "proto3";
+package event;
+// [START java_declaration]
+option java_package = "com.here.event";
+option java_outer_classname = "EventProtos";
+// [END java_declaration]
+service EventProtos{
+  rpc SendEvent(Event) returns (Delivery) {}
+  //Sent current loation and get stream of events
+  rpc GetEvents(Location) returns (stream Event) {}
+}
+
+message Event {
+  string name = 1;
+  int32 latitude = 2;  // Unique ID number for this person.
+  int32 longitude = 3;
+}
+
+message Delivery {
+  string status = 1;
+}
+
+message Location{
+  int32 latitude = 1;
+  int32 longitude = 2;
+}
