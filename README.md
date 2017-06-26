@@ -2,7 +2,7 @@
 Passing on a message stream via GRPC to Kafka
 
 Preinstalling required packages:
-go get google.golang.org/grpc
+go get google.golang.org/grpc\n
 go get -u github.com/golang/protobuf/protoc-gen-go
 
 Creating the protbuf file:
